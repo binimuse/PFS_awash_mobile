@@ -9,7 +9,6 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'dart:async';
 import 'dart:io';
 
 void main() async {

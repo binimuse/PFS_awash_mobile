@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => Scaffold(body: Main()),
+          builder: (context) => const Scaffold(body: Main()),
         ),
         (route) => false,
       );
@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ]),

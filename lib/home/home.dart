@@ -3,11 +3,9 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:awashfeedback/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-import 'package:upgrader/upgrader.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Main extends StatefulWidget {
@@ -62,8 +60,6 @@ class _WebViewExampleState extends State<Main> {
     super.dispose();
   }
 
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
   final GlobalKey _globalKey = GlobalKey();
   late WebViewController goback;
   bool isLoading = true;
@@ -101,8 +97,6 @@ class _WebViewExampleState extends State<Main> {
                       action: PermissionRequestResponseAction.GRANT);
                 },
                 shouldOverrideUrlLoading: (controller, navigationAction) async {
-                  var uri = navigationAction.request.url!;
-
                   return NavigationActionPolicy.ALLOW;
                 },
                 onLoadStop: (controller, url) async {
@@ -121,7 +115,7 @@ class _WebViewExampleState extends State<Main> {
                   }
                   setState(() {
                     this.progress = progress / 100;
-                    urlController.text = this.url;
+                    urlController.text = url;
                   });
                 },
                 onUpdateVisitedHistory: (controller, url, androidIsReload) {
@@ -130,9 +124,7 @@ class _WebViewExampleState extends State<Main> {
                     urlController.text = this.url;
                   });
                 },
-                onConsoleMessage: (controller, consoleMessage) {
-                  print(consoleMessage);
-                },
+                onConsoleMessage: (controller, consoleMessage) {},
               ),
               progress < 1.0
                   ? LinearProgressIndicator(value: progress)
@@ -162,7 +154,7 @@ class _WebViewExampleState extends State<Main> {
         context: _globalKey.currentState!.context,
         builder: (context) => AlertDialog(
           title: const Text('Confirmation'),
-          content: Text("Do you want exit app ?"),
+          content: const Text("Do you want exit app ?"),
           actions: <Widget>[
             // ignore: deprecated_member_use
             FlatButton(
