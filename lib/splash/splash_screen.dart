@@ -35,37 +35,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              decoration: const BoxDecoration(),
-              child: Center(
-                child: Image.asset(
-                  'assets/images/1.png',
-                  height: 160,
-                  width: 260,
-                ),
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Container(
+            decoration: const BoxDecoration(),
+            child: Center(
+              child: Image.asset(
+                'assets/images/1.png',
+                height: 130,
+                width: 260,
               ),
             ),
-            const Center(
-              child: Text(
-                "Public Feedback System",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontFamily: 'WorkSans',
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 0.4,
-                  height: 0.9,
-                  color: kPrimaryColor,
-                ),
-              ),
+          ),
+          const Text(
+            "Public Feedback System",
+            style: TextStyle(
+              fontSize: 20.0,
+              fontFamily: 'WorkSans',
+              fontWeight: FontWeight.bold,
+              letterSpacing: 0.4,
+              height: 0.9,
+              color: kPrimaryColor,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-          ]),
+          ),
+        ]),
+      ),
     );
   }
 }

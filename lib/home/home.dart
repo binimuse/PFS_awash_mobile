@@ -76,9 +76,8 @@ class _WebViewExampleState extends State<Main> {
             children: [
               InAppWebView(
                 key: webViewKey,
-                initialUrlRequest: URLRequest(
-                    url: Uri.parse(
-                        "https://awash-service.ethiopianvictory.com/")),
+                initialUrlRequest:
+                    URLRequest(url: Uri.parse("https://awash.oddatech.com/")),
                 initialOptions: options,
                 pullToRefreshController: pullToRefreshController,
                 onWebViewCreated: (controller) {
